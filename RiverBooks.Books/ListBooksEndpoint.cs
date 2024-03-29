@@ -15,15 +15,6 @@ internal class ListBooksEndpoint(IBookService bookService)
         AllowAnonymous();
     }
 
-    // public override Task<ListBooksResponse> HandleAsync(
-    //     CancellationToken cancellationToken = default)
-    // {
-    //     return Task.FromResult(new ListBooksResponse
-    //     {
-    //         Books = _bookService.ListBooks()
-    //     });
-    // }
-
     public override async Task HandleAsync(
         CancellationToken cancellationToken = default)
     {

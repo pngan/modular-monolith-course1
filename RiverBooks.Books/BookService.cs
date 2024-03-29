@@ -25,10 +25,11 @@ internal class BookService : IBookService
         await _bookRepository.DeleteAsync(book);
   }
 
-  public async Task<BookDto> GetBookByIdAsync(Guid id)
+  public async Task<BookDto?> GetBookByIdAsync(Guid id)
   {
     var book = await _bookRepository.GetByIdAsync(id);
-    // todo: handle not found case
+    if (book is null)
+        return null;
     return new BookDto(book!.Id, book!.Title, book!.Author, book!.Price);
   }
 
