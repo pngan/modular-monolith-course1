@@ -16,16 +16,19 @@ internal class BookService : IBookService
     var book = new Book(newBook.Id, newBook.Title, newBook.Author, newBook.Price);
     await _bookRepository.AddAsync(book);
     await _bookRepository.SaveChangesAsync();
-  }
+    }
 
-  public async Task DeleteBookAsync(Guid id)
-  {
-    var book = await _bookRepository.GetByIdAsync(id);
-    if (book is not null)
-        await _bookRepository.DeleteAsync(book);
-  }
+    public async Task DeleteBookAsync(Guid id)
+    {
+        var book = await _bookRepository.GetByIdAsync(id);
+        if (book is not null)
+        {
+            await _bookRepository.DeleteAsync(book);
+            await _bookRepository.SaveChangesAsync(); 
+        }
+    }
 
-  public async Task<BookDto?> GetBookByIdAsync(Guid id)
+    public async Task<BookDto?> GetBookByIdAsync(Guid id)
   {
     var book = await _bookRepository.GetByIdAsync(id);
     if (book is null)

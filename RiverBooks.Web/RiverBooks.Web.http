@@ -19,8 +19,12 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "id": "8ff39bbd-ac8d-4339-bcd0-f04fbe082c2b",
+  "id": "6ff39bbd-ac8d-4339-bcd0-f04fbe082c2b",
   "title": "There and back again",
   "author": "J.R.R. Tolkein",
   "price": 7.990000
 }
+
+###
+DELETE {{RiverBooks.Web_HostAddress}}/books/8ff39bbd-ac8d-4339-bcd0-f04fbe082c2b
+Accept: application/json
